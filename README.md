@@ -68,5 +68,6 @@ Once on the landing page, click the “Get Stock Data” button to retrieve and 
   ```bash
   docker build -t <your-dockerhub-username>/stock_ticker .
   ```
+- On step 4 the url should take you to the home page, in the event that there is a 404 error page not found add a `/` to nagivate to the home page
 
 This completes the setup. Please refer to the Kubernetes manifests and Dockerfile or reachout to me at giselle.rodrigues007@gmail.com for assistance with this repo.
