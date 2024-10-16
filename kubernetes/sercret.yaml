@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: stock-ticker-secret
+type: Opaque
+data:
+  APIKEY: QzIyN1dEOUc3TFVWQ1ZWOVc=  # Base64 encoded value of 'C227WD9W3LUVKVV9'

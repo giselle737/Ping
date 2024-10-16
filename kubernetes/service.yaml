@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stock-ticker-service
+spec:
+  selector:
+    app: stock-ticker
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080  # Random nodeport chosen within 30000-32767 range
