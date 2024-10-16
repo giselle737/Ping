@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-ticker-deployment
+  labels:
+    app: stock-ticker
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stock-ticker
+  template:
+    metadata:
+      labels:
+        app: stock-ticker
+    spec:
+      containers:
+      - name: stock-ticker-container
+        image: giselle007/stock_ticker:latest ## Replace with local image if unable to pull this image from docker
+        ports:
+        - containerPort: 8080
+        env:
+        - name: SYMBOL
+          valueFrom:
+            configMapKeyRef:
+              name: stock-ticker-config
+              key: SYMBOL
+        - name: NDAYS
+          valueFrom:
+            configMapKeyRef:
+              name: stock-ticker-config
+              key: NDAYS
+        - name: APIKEY
+          valueFrom:
+            secretKeyRef:
+              name: stock-ticker-secret
+              key: APIKEY
